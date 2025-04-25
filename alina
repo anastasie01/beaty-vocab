@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beauty Vocabulary Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #fff8f0;
+      color: #333;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      color: #d06b94;
+    }
+    .word-bank {
+      background: #f2e6ff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    input {
+      padding: 6px;
+      width: 180px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .correct {
+      background-color: #c8f7c5;
+    }
+    .incorrect {
+      background-color: #f7c5c5;
+    }
+    button {
+      background: #d06b94;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #b85a7d;
+    }
+  </style>
+</head>
+<body>
+  <h1>💄 Beauty Vocabulary Quiz</h1>
+
+  <div class="word-bank">
+    Word Bank: comb, bangs, nail file, lipstick, foundation, trim, conditioner, mascara, cuticle, ponytail, shampoo, stylist, braid, manicure, eyeliner
+  </div>
+
+  <form id="quizForm">
+    <p>1. She applied black <input type="text" name="q1" /> before the party.</p>
+    <p>2. I booked a <input type="text" name="q2" /> for 3 PM at the salon.</p>
+    <p>3. The hairdresser used <input type="text" name="q3" /> to cut my hair.</p>
+    <p>4. My sister has beautiful <input type="text" name="q4" /> over her forehead.</p>
+    <p>5. I just need a <input type="text" name="q5" /> today — nothing fancy.</p>
+    <p>6. Apply <input type="text" name="q6" /> after shampooing to soften your hair.</p>
+    <p>7. She got a <input type="text" name="q7" /> with pink polish.</p>
+    <p>8. I need a <input type="text" name="q8" /> to smooth out my nails.</p>
+    <p>9. My <input type="text" name="q9" /> helped me choose a new style.</p>
+    <p>10. She tied her hair back in a <input type="text" name="q10" /> for the gym.</p>
+    <p>11. I love when you do a French <input type="text" name="q11" /> in my hair.</p>
+    <p>12. Don't forget to clean around the <input type="text" name="q12" /> of the nail.</p>
+    <p>13. Use a wide-tooth <input type="text" name="q13" /> before styling.</p>
+    <p>14. Red <input type="text" name="q14" /> is her signature look.</p>
+    <p>15. I apply <input type="text" name="q15" /> to make my skin look even.</p>
+
+    <button type="button" onclick="checkAnswers()">Check Answers</button>
+  </form>
+
+  <script>
+    const answers = [
+      "mascara",
+      "appointment",
+      "scissors",
+      "bangs",
+      "trim",
+      "conditioner",
+      "manicure",
+      "nail file",
+      "stylist",
+      "ponytail",
+      "braid",
+      "cuticle",
+      "comb",
+      "lipstick",
+      "foundation"
+    ];
+
+    function checkAnswers() {
+      const form = document.getElementById("quizForm");
+      const inputs = form.querySelectorAll("input");
+      inputs.forEach((input, index) => {
+        const userAnswer = input.value.trim().toLowerCase();
+        const correctAnswer = answers[index].toLowerCase();
+        if (userAnswer === correctAnswer) {
+          input.classList.remove("incorrect");
+          input.classList.add("correct");
+        } else {
+          input.classList.remove("correct");
+          input.classList.add("incorrect");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
